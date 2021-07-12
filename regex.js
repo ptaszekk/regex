@@ -12,6 +12,8 @@ const regexKeyword = (function() {
     keyWords.forEach(word => regex = `${regex + word}|`)
     return `/${regex}/g`;
 })()
+
+
 console.log(regexKeyword)
 let str = 'function afsaf function fajhHDHJDdss function FSJKFJfkjs      ';
 
