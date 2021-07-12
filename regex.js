@@ -17,3 +17,5 @@ function count (str) {
 }
 count(str)
 findFunction(str);
+
+function whatever (){}
