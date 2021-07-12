@@ -15,7 +15,5 @@ function count (str) {
     console.log(str.match(regex).length)
     return str.match(regex).length
 }
-
 count(str)
 findFunction(str);
-
