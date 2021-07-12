@@ -1,3 +1,3 @@
 # regex
 
-this is supposed to count function calls and declarations throughout the code
+this is supposed to count function and variable declarations throughout the code
