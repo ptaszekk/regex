@@ -1,7 +1,7 @@
-//regexx expression to find functions
+//regex expression to find functions
 
 let regexFunc = /function?\s+\(\s+([a-zA-Z]*)\s+\)\s+/g;
-//finding function and itts hame
+//finding function and its name
 let regex = /function\s+[a-zA-Z]*/g;
 let regexArrow = /|\(\)\(=>\)\s+?/
 
@@ -13,12 +13,12 @@ const regexKeyword = (function() {
     return `/${regex}/g`;
 })()
 
-
-console.log(regexKeyword)
-let str = 'function afsaf function fajhHDHJDdss function FSJKFJfkjs      ';
-
-function findFunction(str) {
-    console.log(str.match(regex))
+function regexChecker(str, regex) {
+    const test = regex.test(str)
+    if (test)
+        return str.match(regex)
+    else
+        return 'sorry no match'
 }
 
 function count(str) {
@@ -26,8 +26,26 @@ function count(str) {
     return str.match(regex).length
 }
 
+function variablesCounter(str) {
+    const regex = /(var)|(let)|(const)/g
+    let letCounter = 0,
+        varCounter = 0,
+        constCounter = 0;
+    let variableArray = [];
+    (typeof str === "string" && regex.test(str)) ? variableArray = str.match(regex) : null;
+    variableArray.map(variable => {
+        const v = /var/g;
+        const l = /let/g;
+        const c = /const/g;
+        console.log(variable);
+        (v.test(variable)) ? varCounter++ : null;
+        (l.test(variable)) ? letCounter++ : null;
+        (c.test(variable)) ? constCounter++ : null;
+    })
+    console.log(variableArray.length, variableArray)
+    console.log(`let count = ${letCounter}, var count = ${varCounter}, const count =  ${constCounter}`)
+
+}
+
 count(str)
 findFunction(str);
-
-function whatever() {
-}
